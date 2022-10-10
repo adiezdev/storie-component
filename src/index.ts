@@ -1,3 +1,2 @@
-
-import {StoriesComponent} from './components/StoriesComponent';
+import { StoriesComponent } from "./components/StoriesComponent";
 export default StoriesComponent;

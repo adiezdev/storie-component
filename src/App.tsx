@@ -1,6 +1,7 @@
+import React from 'react'
 import { TContent } from './types/TContent'
 import './App.css'
-import StoriesComponent from 'storie-component'
+import { StoriesComponent } from './components/StoriesComponent';
 
 const array: Array<TContent> = [
   {
@@ -38,7 +39,7 @@ function App() {
   return (
     <div className="App">
       <div className='component'>
-      <StoriesComponent content={array} seconds={14}/>
+        <StoriesComponent content={array} seconds={14} />
       </div>
     </div>
   )
