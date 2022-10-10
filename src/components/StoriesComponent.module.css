@@ -1,0 +1,76 @@
+.stories {
+  border-radius: 20px;
+  box-shadow: 0px 0px 10px 0px rgb(0 0 0 / 43%);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+.storiesaction {
+  display: flex;
+  position: absolute;
+  height: inherit;
+  width: inherit;
+}
+.storiesactionbutton {
+  width: 50%;
+  height: 100%;
+  cursor: pointer;
+  z-index: 1;
+}
+.countprogressstories {
+  padding-top: 3px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  width: 100%;
+}
+.hiddenprogressstories {
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0s 0.2s, opacity 0.2s ease-in-out;
+}
+.storiescontent {
+  height: 100%;
+}
+.storiescontent img {
+  border-radius: 20px;
+  width: 100%;
+  height: 100%;
+}
+.storiescontent video {
+  border-radius: 20px;
+  width: 100%;
+  height: 100%;
+}
+.storiescontent iframe {
+  border-radius: 20px;
+  width: 100%;
+  height: 100%;
+}
+.storiescontent .jsx {
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.storiescontent:first-child {
+  margin-top: 1000px;
+}
+
+@keyframes fadeOutAnimation {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
