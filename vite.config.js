@@ -1,8 +1,7 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
-import injectCss from '@cxing/vitejs-plugin-inject-css';
+import { libInjectCss } from 'vite-plugin-lib-inject-css';
 
-// https://vitejs.dev/config/
 export default defineConfig({
     build: {
         minify: false,
@@ -27,5 +26,5 @@ export default defineConfig({
     css: {
         inpunt: "src/index.css",            
     },
-    plugins: [react(), injectCss()],  // NEW
+    plugins: [react(), libInjectCss()], 
 });

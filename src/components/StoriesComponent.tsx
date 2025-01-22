@@ -8,11 +8,12 @@ import { useCount } from '../hook/useCount'
 import { InnerComponent } from './ContentTypes/InnerComponent'
 import TStoriesComponent from '../types/TStoriesComponent'
 import styles from './StoriesComponent.module.css'
+import { MutedComponent } from './MutedComponent'
 
 export const typeComponents: TTypesContent = {
     image: (storie: TContent) => <ImageComponent content={storie.url!} fullscreen={storie.fullscreen} />,
-    youtube: (storie: TContent) => <iframe src={storie.url} title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>,
-    video: (storie: TContent, isPlay?: boolean) => <VideoComponent content={storie.url!} fullscreen={storie.fullscreen} isPlay={isPlay} />,
+    youtube: (storie: TContent) => <iframe src={`${storie.url}?autoplay=1&loop=1&autopause=0&muted=1&controls=0`} title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"></iframe>,
+    video: (storie: TContent, isPlay?: boolean, muted?: boolean) => <VideoComponent content={storie.url!} fullscreen={storie.fullscreen} isPlay={isPlay} muted={muted} />,
     jsx: (storie: TContent, isPlay?: boolean) => <InnerComponent storie={storie} isPlay={isPlay!} />,
 }
 
@@ -22,9 +23,12 @@ export const StoriesComponent = ({ content, seconds, progress = true }: TStories
     const { count, start, stop, reset, isPlay } = useCount(second)
 
     const [currentIndex, setCurrentIndex] = useState(0)
+
     const [storie, setstorie] = useState(content[currentIndex])
 
-    const mouse = useRef<any>()
+    const [isMuted, setisMuted] = useState(true)
+
+    const mouse = useRef<any>(null)
 
     useEffect(() => {
         if (count > second) {
@@ -32,13 +36,13 @@ export const StoriesComponent = ({ content, seconds, progress = true }: TStories
             start()
             if (currentIndex === content.length - 1)
                 setCurrentIndex(0)
+            reset();
         }
     }, [count, start]);
 
     useEffect(() => {
         setstorie(content[currentIndex])
-    }, [currentIndex])
-
+    }, [currentIndex]);
     const hadleClickLeft = (e: any) => {
         e.preventDefault()
         setCurrentIndex(currentIndex - 1)
@@ -54,6 +58,12 @@ export const StoriesComponent = ({ content, seconds, progress = true }: TStories
         if (currentIndex === content.length - 1)
             setCurrentIndex(0)
     }
+
+    const hadleMuted = () => {
+        if (storie.type === 'video') {
+            setisMuted(!isMuted)
+        }
+    };
 
     const pause = (e: React.MouseEvent | React.TouchEvent) => {
         e.preventDefault()
@@ -89,10 +99,17 @@ export const StoriesComponent = ({ content, seconds, progress = true }: TStories
             </div>
             <div className={styles.storiescontent}>
                 {
-                    typeComponents[storie.type](storie, isPlay)
+                    typeComponents[storie.type](storie, isPlay, isMuted)
                 }
             </div>
             <div className={styles.storiesaction}>
+                {
+                storie.type === 'video' 
+                && 
+                <div className={styles.mutedPosition}>
+                    <MutedComponent muted={isMuted} hadleMuted={hadleMuted} />
+                </div>      
+                }
                 <div className={styles.storiesactionbutton}
                     onTouchStart={pause}
                     onTouchEnd={resume('left')}

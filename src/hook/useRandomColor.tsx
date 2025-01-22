@@ -3,7 +3,7 @@ import { useEffect, useState } from "react"
 
 
 export const useRandomColor = () => {
-    const [gradient, setGradient] = useState('')
+    const [gradient, setGradient] = useState('red')
 
     useEffect(() => {
         const randomColor = () => {

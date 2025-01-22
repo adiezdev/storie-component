@@ -6,11 +6,11 @@ import { StoriesComponent } from './components/StoriesComponent';
 const array: Array<TContent> = [
   {
     type: 'image',
-    url: 'https://images.unsplash.com/photo-1654524145280-576480eec479?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1976&q=80',
+    url: 'https://images.unsplash.com/photo-1519241678948-28f18681ce14?q=80&w=2787&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
   },
   {
-    type: 'video',
-    url: 'https://cdn.cloudflare.steamstatic.com/steam/apps/256860561/movie480_vp9.webm?t=1646817716#t=15'
+    type: 'youtube',
+    url: 'https://www.youtube.com/embed/SbAKYgfYET8',
   },
   {
     type: 'jsx',
@@ -26,6 +26,10 @@ const array: Array<TContent> = [
       backgroundColor: '#252525',
       color: '#fff',
     }
+  },
+  {
+    type: 'video',
+    url: 'https://video-ssl.itunes.apple.com/itunes-assets/Video115/v4/5f/36/04/5f36047c-bdd8-a09b-061c-83e3ddb3853e/mzvf_4552267264981247503.640x356.h264lc.U.p.m4v',
   },
   {
     type: 'video',
