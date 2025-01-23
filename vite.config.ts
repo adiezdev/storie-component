@@ -1,5 +1,6 @@
-import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
+import { defineConfig } from "vite";
+import { libInjectCss } from 'vite-plugin-lib-inject-css';
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -14,12 +15,14 @@ export default defineConfig({
             formats: ['es'],
         },
         rollupOptions: {
-            external: ["react", "react-dom"],
-            globals : {
-                react: "React",
-            }
+            output: {
+                globals: {
+                    react: "React",
+                    "react-dom": "ReactDOM",
+                },
+            },
         } 
         
     },
-    plugins: [react()],    
+    plugins: [react(), libInjectCss()],    
 });
