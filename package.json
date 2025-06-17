@@ -43,7 +43,7 @@
   },
   "homepage": "https://github.com/adiezdev/storie-component#readme",
   "devDependencies": {
-    "@types/node": "^22.10.7",
+    "@types/node": "^24.0.3",
     "@types/react": "^19.0.7",
     "@types/react-dom": "^19.0.3",
     "@vitejs/plugin-react": "^4.3.4",
