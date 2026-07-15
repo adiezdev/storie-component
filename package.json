@@ -1,7 +1,7 @@
 {
   "name": "storie-component",
   "private": false,
-  "version": "0.2.6",
+  "version": "0.2.7",
   "description": "A component for ReactJS to display stories",
   "keywords": [
     "react",
@@ -15,9 +15,14 @@
   "types": "./dist/types/index.d.ts",
   "exports": {
     ".": {
-      "types": "./dist/types/index.d.ts",
-      "import": "./dist/storie-component.es.js",
-      "require": "./dist/storie-component.umd.js"
+      "import": {
+        "types": "./dist/types/index.d.ts",
+        "default": "./dist/storie-component.es.js"
+      },
+      "require": {
+        "types": "./dist/types/index.d.ts",
+        "default": "./dist/storie-component.umd.js"
+      }
     }
   },
   "files": [
