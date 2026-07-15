@@ -9,12 +9,13 @@ export default defineConfig({
         cssCodeSplit: true,
         sourcemap: true,
         lib: {
-            entry: "src",
+            entry: "src/index.ts",
             name: "storie-component",
             fileName: (format) => `storie-component.${format}.js`,
-            formats: ['es'],
+            formats: ['es', 'umd'],
         },
         rollupOptions: {
+            external: ["react", "react-dom"],
             output: {
                 globals: {
                     react: "React",
