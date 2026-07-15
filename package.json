@@ -15,14 +15,9 @@
   "types": "./dist/types/index.d.ts",
   "exports": {
     ".": {
-      "import": {
-        "types": "./dist/types/index.d.ts",
-        "default": "./dist/storie-component.es.js"
-      },
-      "require": {
-        "types": "./dist/types/index.d.ts",
-        "default": "./dist/storie-component.umd.js"
-      }
+      "types": "./dist/types/index.d.ts",
+      "import": "./dist/storie-component.es.js",
+      "require": "./dist/storie-component.umd.js"
     }
   },
   "files": [
