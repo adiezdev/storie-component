@@ -2,7 +2,7 @@
   "name": "storie-component",
   "type": "module",
   "private": false,
-  "version": "0.2.8",
+  "version": "0.2.9",
   "description": "A component for ReactJS to display stories",
   "keywords": [
     "react",
